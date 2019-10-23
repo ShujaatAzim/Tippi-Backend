@@ -23,7 +23,6 @@ class TipsController < ApplicationController
     #     @tip = Tip.find(params[:id])
     # end
 
-
     def destroy
         @tip = Tip.find(params[:id])
         @tip.destroy
@@ -32,7 +31,7 @@ class TipsController < ApplicationController
     private
 
     def tip_params
-        params.require(:item).permit(:amount, :date, :restaurant)
+        params.require(:tip).permit(:amount, :date, :restaurant)
     end
 
 end
