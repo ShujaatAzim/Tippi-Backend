@@ -3,7 +3,7 @@ class CreateTips < ActiveRecord::Migration[5.2]
     create_table :tips do |t|
       t.string :amount
       t.string :date
-      t.string :restaurant
+      t.integer :restaurant_id
 
       t.timestamps
     end
