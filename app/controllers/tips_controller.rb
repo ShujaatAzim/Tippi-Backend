@@ -15,8 +15,7 @@ class TipsController < ApplicationController
     end
 
     def create
-        @tip = Tip.new(tip_params)
-        @tip.save
+        @tip = Tip.create(tip_params)
         render json: @tip.to_json()
     end
 
@@ -34,7 +33,7 @@ class TipsController < ApplicationController
     private
 
     def tip_params
-        params.require(:tip).permit(:amount, :date, :restaurant)
+        params.require(:tip).permit(:amount, :date, :restaurant_id)
     end
 
 end
