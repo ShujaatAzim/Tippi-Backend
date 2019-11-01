@@ -2,12 +2,14 @@ class RestaurantsController < ApplicationController
 
     def index
         @restaurants = Restaurant.all
-        render json: @restaurants.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, :except => [:created_at, :updated_at])
+        render json: @restaurants.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, 
+            :except => [:created_at, :updated_at])
     end
 
     def show
         @restaurant = Restaurant.find(params[:id])
-        render json: @restaurant.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, :except => [:created_at, :updated_at])
+        render json: @restaurant.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, 
+            :except => [:created_at, :updated_at])
     end
 
     def new
@@ -25,9 +27,9 @@ class RestaurantsController < ApplicationController
         render json: @restaurant.to_json()
     end
 
-    def delete
+    def destroy
         @restaurant = Restaurant.find(params[:id])
-        @restaurant.destroy
+        @restaurant.delete
     end
 
 
