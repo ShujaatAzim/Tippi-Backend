@@ -2,14 +2,12 @@ class RestaurantsController < ApplicationController
 
     def index
         @restaurants = Restaurant.all
-        render json: @restaurants.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, 
-            :except => [:created_at, :updated_at])
+        render json: RestaurantSerializer.new(@restaurants).to_serialized_json
     end
 
     def show
         @restaurant = Restaurant.find(params[:id])
-        render json: @restaurant.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, 
-            :except => [:created_at, :updated_at])
+        render json: RestaurantSerializer.new(@restaurant).to_serialized_json
     end
 
     def new
