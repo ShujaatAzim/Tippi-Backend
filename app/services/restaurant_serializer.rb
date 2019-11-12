@@ -14,9 +14,6 @@ class RestaurantSerializer
       except: [:created_at, :updated_at]
     }
     @restaurant.to_json(options)
-    # @restaurant.to_json(:include => {:tips => {:except => [:restaurant_id, :created_at, :updated_at]}}, 
-    #   :except => [:created_at, :updated_at])
   end
-
 
 end

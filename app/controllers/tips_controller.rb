@@ -2,14 +2,12 @@ class TipsController < ApplicationController
 
     def index 
         @tips = Tip.all
-        render json: @tips.to_json(:include => {:restaurant => {:except => [:created_at, :updated_at]}}, 
-            :except => [:restaurant_id, :created_at, :updated_at])
+        render json: TipSerializer.new(@tips).to_serialized_json
     end
 
     def show
         @tip = Tip.find(params[:id])
-        render json: @tip.to_json(:include => {:restaurant => {:except => [:created_at, :updated_at]}}, 
-            :except => [:restaurant_id, :created_at, :updated_at])
+        render json: TipSerializer.new(@tip).to_serialized_json
     end
 
     def new
