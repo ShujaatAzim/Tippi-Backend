@@ -1,4 +1,3 @@
-
 ActiveRecord::Schema.define(version: 2019_10_30_214356) do
 
   create_table "restaurants", force: :cascade do |t|

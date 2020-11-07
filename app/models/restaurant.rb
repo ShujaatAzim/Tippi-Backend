@@ -1,8 +1,7 @@
 class Restaurant < ApplicationRecord
 
-    validates :name, presence: true
-    validates :location, presence: true
+	validates :name, presence: true
 
-    has_many :tips
+	has_many :tips
     
 end
