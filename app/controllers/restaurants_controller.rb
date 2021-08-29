@@ -10,10 +10,6 @@ class RestaurantsController < ApplicationController
 		render json: RestaurantSerializer.new(@restaurant).to_serialized_json
 	end
 
-	def new
-		@restaurant = Restaurant.new
-	end
-
 	def create
 		@restaurant = Restaurant.create(name: params[:name], location: params[:location])
 		render json: @restaurant.to_json()

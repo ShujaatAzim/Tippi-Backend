@@ -10,10 +10,6 @@ class TipsController < ApplicationController
 		render json: TipSerializer.new(@tip).to_serialized_json
 	end
 
-	def new
-		@tip = Tip.new
-	end
-
 	def create
 		@tip = Tip.create(tip_params)
 		render json: @tip.to_json()
